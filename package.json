@@ -1,0 +1,69 @@
+{
+  "name": "@unitprotocol/multidata-sdk",
+  "version": "0.0.1-development",
+  "description": "Multidata oracle SDK",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "types": "./lib/cjs/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "semantic-release": "semantic-release",
+    "prepack": "npm run build"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unitprotocol/multidata_sdk"
+  },
+  "keywords": [
+    "npm",
+    "javascript",
+    "typescript",
+    "multidata",
+    "oracle",
+    "unitProtocol",
+    "eth"
+  ],
+  "author": "Unit Protocol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unitprotocol/multidata_sdk/issues"
+  },
+  "homepage": "https://github.com/unitprotocol/multidata_sdk#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^9.1.1",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "semantic-release": "^19.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "web3": "^1.8.2"
+  }
+}
