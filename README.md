@@ -1,4 +1,4 @@
-# multidata-sdk
+# multidata-oracle-sdk
 
 SDK for multidata oracle
 
@@ -16,18 +16,19 @@ $ yarn add debug @unitprotocol/multidata-sdk
 ## Usage
 
 ```js
-import OracleReader from '@unit-protocol/multidata-sdk';
+import OracleReader from '@unitprotocol/multidata-sdk';
 
 const reader = new OracleReader();
 
-reader.getPriceById(1).then((resp) => console.log('resp', resp));
+// getPriceById([ids], [, formatted])
+reader.getPriceById(1, true).then((resp) => console.log('resp', resp));
 ```
 
 ## API
-| Method          | Return type       | Description                   |
-|-----------------|-------------------|-------------------------------|
-| getMetrics      | Promise<Metric[]> | Return all metrics properties |
-| getPricesByIds  | Promise<Price[]>  | Return price by id or name    |
-| getPriceById    | Promise<Price[]>  | Return price by id or name    |
-| getMetricsCount | Promise\<number>  | Return total metrics count    |
-| hasMetric       | Promise\<boolean> | Check if Metric exist         |
+| Method            | Return type       | Description                   |
+|-------------------|-------------------|-------------------------------|
+| getMetrics        | Promise<Metric[]> | Return all metrics properties |
+| getLastFeedsByIds | Promise<Price[]>  | Return price by id or name    |
+| getMetricsCount   | Promise\<number>  | Return total metrics count    |
+| hasMetric         | Promise\<boolean> | Check if Metric exist         |
+| onFeedsUpdated    | Subscription<Log> | Subscribe to update event     |

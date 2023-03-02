@@ -7,9 +7,9 @@ type Metric ={
 
 export type GetMetricsResp = Metric[]
 
-type Price = {
+type Feed = {
   updateTS: string
   value: string
 }
 
-export type GetPricesResp = Price[]
+export type GetLastFeedsResp = Feed[]
