@@ -6,17 +6,17 @@ SDK for multidata oracle
 
 #### Using npm
 ```bash
-$ npm install @unitprotocol/multidata-sdk
+$ npm install @multidata/sdk
 ```
 #### Using Yarn
 ```bash
-$ yarn add debug @unitprotocol/multidata-sdk
+$ yarn add debug @multidata/sdk
 ```
 
 ## Usage
 
 ```js
-import OracleReader from '@unitprotocol/multidata-sdk';
+import OracleReader from '@multidata/sdk';
 
 const reader = new OracleReader();
 
